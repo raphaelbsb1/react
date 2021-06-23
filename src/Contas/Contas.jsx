@@ -1,7 +1,9 @@
 import React from 'react';
 import "./estilo.css";
+import deleteIcon from "../assets/delete.svg";
+import editIcon from "../assets/edit.svg";
 
-const Contas = ({ contas, removeConta }) => {
+const Contas = ({ contas, removeConta, editarConta }) => {
 
     return (
         <div id="contas">
@@ -10,8 +12,7 @@ const Contas = ({ contas, removeConta }) => {
                     <tr>
                         <th>Nome</th>
                         <th>Descrição</th>
-                        <th></th>
-                        <th></th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -21,10 +22,8 @@ const Contas = ({ contas, removeConta }) => {
                                 <td>{conta.nome}</td>
                                 <td>{conta.descricao}</td>
                                 <td>
-                                    <input type="button" value="Editar" />
-                                </td>
-                                <td>
-                                    <input type="button" value="Remover" onClick={(event) => removeConta(index)} />
+                                    <img src={editIcon} alt="Editar" onClick={() => editarConta(index)}  />
+                                    <img src={deleteIcon} alt="Remover" onClick={() => removeConta(index)}  />
                                 </td>
                             </tr>
                         )
